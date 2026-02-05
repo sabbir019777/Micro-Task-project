@@ -168,7 +168,7 @@ const SignUp = () => {
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </span>
-              {errors.password && <span className="text-red-500 text-sm mt-1">Min 6 chars required</span>}
+              {errors.password && <span className="text-red-500 text-sm mt-1">Min 6 charcters required</span>}
             </div>
 
             {/* Role Select */}
