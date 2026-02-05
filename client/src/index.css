@@ -1,0 +1,34 @@
+/* src/index.css */
+@import "tailwindcss";
+
+body {
+  
+    background-color: #1d232a; 
+    margin: 0;
+    padding: 0;
+    color: white; 
+}
+
+
+.section-container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-right: 20px;
+ 
+    background-color: transparent; 
+}
+
+
+@media (min-width: 1024px) {
+    .section-container {
+        padding-left: 60px;
+        padding-right: 60px;
+    }
+}
+
+
+#root {
+    background-color: #1d232a;
+    min-height: 100vh;
+}
