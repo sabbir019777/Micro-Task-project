@@ -106,7 +106,7 @@ const ManageTasks = () => {
                                     className="w-full flex items-center justify-center gap-2 py-4 bg-red-500/10 text-red-500 border border-red-500/20 rounded-xl font-black uppercase text-xs tracking-widest hover:bg-red-600 hover:text-white transition-all duration-300 shadow-lg group/btn"
                                 >
                                     <FaTrashAlt className="group-hover/btn:rotate-12 transition-transform" />
-                                    Terminate Task
+                                    Terminate Tasks
                                 </button>
                             </div>
                         </div>
