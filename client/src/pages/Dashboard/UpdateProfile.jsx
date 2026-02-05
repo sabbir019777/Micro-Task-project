@@ -45,7 +45,7 @@ const UpdateProfile = () => {
             
  
             <div className="bg-[#15191e] p-8 rounded-3xl shadow-2xl max-w-md w-full border border-gray-700">
-                <h2 className="text-2xl font-bold text-center text-white mb-6">Update Profile</h2>
+                <h2 className="text-2xl font-bold text-center text-white mb-6">Update Profiles</h2>
                 
             
                 <div className="flex flex-col items-center mb-6">
