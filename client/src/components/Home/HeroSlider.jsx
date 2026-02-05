@@ -111,7 +111,7 @@ const HeroSlider = () => {
                   <motion.div variants={wordVariants} className="inline-flex items-center gap-3 mb-8">
                     <span className="h-[2px] w-12 bg-gradient-to-r from-blue-500 to-cyan-400"></span>
                     <span className="text-xs font-bold tracking-[0.4em] text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-                      MISSION PROTOCOL v2.0
+                      MISSION PROTOCOLS v2.0
                     </span>
                   </motion.div>
 
