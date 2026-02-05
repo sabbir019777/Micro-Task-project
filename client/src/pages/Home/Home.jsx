@@ -5,6 +5,8 @@ import { Helmet } from 'react-helmet-async';
 import HeroSlider from '../../components/Home/HeroSlider';
 import Stats from '../../components/Home/Stats';
 import TopWorkers from '../../components/Home/TopWorkers';
+
+
 import HowItWorks from '../../components/Home/HowItWorks';
 import Features from '../../components/Home/Features';
 import Testimonials from '../../components/Home/Testimonials';
@@ -16,7 +18,7 @@ const Home = () => {
     return (
         <div>
             <Helmet>
-                <title>Home | Micro Earner</title>
+                <title>Home | Micro Earners</title>
             </Helmet>
 
 
