@@ -50,7 +50,7 @@ const Profile = () => {
                     to="/dashboard/update-profile" 
                     className="block w-full bg-[#3b82f6] hover:bg-[#2563eb] text-white font-bold py-3 rounded-xl transition-all shadow-lg hover:shadow-[0_0_20px_rgba(59,130,246,0.4)]"
                 >
-                    Update Profile
+                    Updates Profile
                 </Link>
             </div>
         </div>
