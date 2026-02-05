@@ -60,7 +60,7 @@ const Withdraw = () => {
                 refetch(); 
             }
         } catch (error) {
-            Swal.fire("Error", "Something went wrong!", "error");
+            Swal.fire("Error", "Something wents wrong!", "error");
         }
     };
 
