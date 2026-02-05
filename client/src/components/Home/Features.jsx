@@ -42,7 +42,7 @@ const Features = () => {
         { 
             id: 5, 
             icon: <FaUserShield />, 
-            title: "Verified Identity", 
+            title: "Verified Identitys", 
             desc: "Maintain a high-trust environment with our advanced multi-layer verification system that safeguards buyer and worker profiles from unauthorized access.", 
             color: "from-green-400 to-cyan-500", 
             shadow: "shadow-green-500/20" 
