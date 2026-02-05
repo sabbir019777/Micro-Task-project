@@ -105,7 +105,7 @@ const TaskList = () => {
 
                 <div className="flex flex-col items-center justify-center min-h-[50vh] text-center">
                     <img src="https://cdni.iconscout.com/illustration/premium/thumb/no-data-found-8867280-7265556.png?f=webp" alt="No Tasks" className="w-64 opacity-50 mb-4" />
-                    <h3 className="text-2xl font-bold text-gray-400">No Available Tasks</h3>
+                    <h3 className="text-2xl font-bold text-gray-400">No Available Task</h3>
                     <p className="text-gray-500">Currently there are no tasks to display.</p>
                 </div>
             )}
