@@ -86,7 +86,7 @@ const Login = () => {
             MicroTasker
           </h1>
           <p className="py-6 text-gray-300 text-lg">
-            MicroTasker helps you connect and earn money by completing simple
+            MicroTasker help you connect and earn money by completing simple
             tasks daily. Join our community today!
           </p>
         </div>
