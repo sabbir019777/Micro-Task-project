@@ -49,7 +49,7 @@ const AdminHome = () => {
                 <h2 className="text-3xl font-black text-white italic tracking-tighter">
                     ADMIN <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">DASHBOARD</span>
                 </h2>
-                <p className="text-gray-500 mt-2 tracking-wide text-sm">System Overview & Statistics</p>
+                <p className="text-gray-500 mt-2 tracking-wide text-sm">System Overviews & Statistics</p>
             </div>
 
           
