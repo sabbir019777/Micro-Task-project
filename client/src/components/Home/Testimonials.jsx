@@ -6,7 +6,7 @@ import "swiper/css";
 
 const Testimonials = () => {
   const reviews = [
-    { id: 1, name: "Sarah Jenifer", quote: "As a buyer, I found the most reliable workers here. My data entry tasks were completed with 100% accuracy." },
+    { id: 1, name: "Tamim Iqbal", quote: "As a buyer, I found the most reliable workers here. My data entry tasks were completed with 100% accuracy." },
     { id: 2, name: "Rakib Ahmed", quote: "The interface is very user-friendly. I love how easy it is to track my earnings and submitted tasks daily." },
     { id: 3, name: "Tania Sultana", quote: "Best platform for beginners. I received my 10 coins bonus instantly after registration and started working!" },
     { id: 4, name: "Ariful Islam", quote: "MicroTasker has completely changed how I earn online. The withdrawal process is incredibly fast." },
