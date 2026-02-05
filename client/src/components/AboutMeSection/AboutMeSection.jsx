@@ -32,7 +32,7 @@ const AboutMeSection = () => {
                     className="flex flex-col items-center mb-24 text-center"
                 >
                     <h3 className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500 font-black tracking-[0.6em] text-[10px] mb-4 drop-shadow-[0_0_10px_rgba(34,211,238,0.5)]">
-                        NEXT-GEN PROTOCOL
+                        NEXT-GEN PROTOCOLS
                     </h3>
                     <h2 className="text-4xl md:text-6xl font-black italic tracking-tighter leading-none">
                         <span className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]">UNLOCK</span> <br />
