@@ -13,7 +13,7 @@ const port = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// MongoDB URI
+// MongoDB URi
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.5u4x9tc.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
 
 
