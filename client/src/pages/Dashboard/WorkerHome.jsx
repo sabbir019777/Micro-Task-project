@@ -71,7 +71,7 @@ const WorkerHome = () => {
 
           
                 <StatCard 
-                    title="Pending Submissions" 
+                    title="Pending Submission" 
                     value={stats.pendingSubmissions || 0} 
                     icon={<FaHourglassHalf className="text-orange-400" />}
                     gradient="from-orange-400 to-red-500"
