@@ -206,7 +206,7 @@ const Navbar = () => {
                                         <div className="h-[1px] bg-white/10 mx-2"></div>
                                         <li>
                                             <button onClick={logOut} className="py-3 bg-red-500/10 text-red-500 hover:bg-red-600 hover:text-white font-bold rounded-xl transition-all flex justify-center shadow-lg">
-                                                Sign Out Platform
+                                                Sign Out
                                             </button>
                                         </li>
                                     </ul>
