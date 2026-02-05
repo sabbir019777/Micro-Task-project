@@ -32,7 +32,7 @@ const Footer = () => {
                             </h2>
                         </div>
                         <p className="text-gray-400 normal-case text-sm leading-relaxed font-medium">
-                            The next-gen decentralized terminal for micro-missions. Earn verified protocol assets by executing digital tasks across the global node network.
+                            The next-gen decentralized terminal for micro-missions. Earn verified protocol assets by executing digital tasks across the global node networks.
                         </p>
                     </div>
 
