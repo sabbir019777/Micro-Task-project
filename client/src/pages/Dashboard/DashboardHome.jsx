@@ -93,7 +93,7 @@ const DashboardHome = () => {
                         )}
                         {role === 'admin' && (
                             <Link to="/dashboard/manageUsers" className="btn btn-lg bg-gradient-to-r from-purple-500 to-indigo-600 border-none text-white rounded-xl px-8 shadow-[0_0_20px_rgba(139,92,246,0.4)] hover:shadow-[0_0_30px_rgba(139,92,246,0.6)]">
-                                Manage System <FaArrowRight className="ml-2" />
+                                Manage Systems <FaArrowRight className="ml-2" />
                             </Link>
                         )}
                         
