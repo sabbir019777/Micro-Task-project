@@ -77,7 +77,7 @@ const MyTasks = () => {
 
     return (
         <div className="p-4 md:p-8 min-h-screen bg-[#1d232a]">
-            {/* হেডার */}
+      
             <div className="mb-10">
                 <h2 className="text-3xl font-black text-white italic tracking-tighter flex items-center gap-3">
                     <FaClipboardList className="text-blue-500" />
