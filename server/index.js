@@ -8,7 +8,8 @@ const { MongoClient, ServerApiVersion, ObjectId } = require("mongodb");
 
 const port = process.env.PORT || 5000;
 
-// Middleware
+// Middlewares
+
 app.use(cors());
 app.use(express.json());
 
@@ -23,6 +24,9 @@ const client = new MongoClient(uri, {
     deprecationErrors: true,
   },
 });
+
+
+
 
 async function run() {
   try {
