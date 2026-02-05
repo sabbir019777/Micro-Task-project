@@ -56,7 +56,7 @@ const BuyerHome = () => {
                     BUYER <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">DASHBOARD</span>
                 </h2>
                 <p className="text-gray-500 mt-2 tracking-wide text-sm font-bold uppercase">
-                    Welcome back, <span className="text-white">{user?.displayName}</span>
+                    Welcome back... <span className="text-white">{user?.displayName}</span>
                 </p>
                 <div className="h-1 w-20 bg-gradient-to-r from-blue-500 to-transparent mt-4"></div>
             </div>
