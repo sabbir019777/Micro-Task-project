@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react"; 
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
@@ -14,9 +14,13 @@ const Login = () => {
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  useEffect(() => {
+    setEmail("");
+    setPassword("");
+  }, []);
 
   const getAccessToken = async (email) => {
     try {
@@ -31,7 +35,6 @@ const Login = () => {
 
   const handleLogin = (event) => {
     event.preventDefault();
-
     setError("");
 
     signIn(email, password)
@@ -45,8 +48,12 @@ const Login = () => {
         });
         navigate(from, { replace: true });
       })
-      .catch(() => setError("Invalid email or password."));
+      .catch((err) => {
+          console.log(err);
+          setError("Invalid email or password.");
+      });
   };
+
 
   const fillDemoCredentials = (demoEmail, demoPassword) => {
     setEmail(demoEmail);
@@ -80,7 +87,6 @@ const Login = () => {
     <div className="hero min-h-screen bg-[#1d232a]">
       <div className="hero-content flex-col lg:flex-row justify-between w-full max-w-6xl px-4">
         
-
         <div className="text-center lg:text-left lg:w-1/2 mb-8 lg:mb-0">
           <h1 className="text-5xl lg:text-6xl font-bold text-[#3b82f6]">
             MicroTasker
@@ -90,7 +96,6 @@ const Login = () => {
             tasks daily. Join our community today!
           </p>
         </div>
-
 
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border border-gray-700">
           
@@ -124,12 +129,10 @@ const Login = () => {
               </div>
             </div>
 
-
             <div className="form-control">
               <label className="label">
                 <span className="label-text text-gray-300">Email</span>
               </label>
-         
               <input
                 type="email"
                 name="email"
@@ -145,7 +148,6 @@ const Login = () => {
               <label className="label">
                 <span className="label-text text-gray-300">Password</span>
               </label>
-           
               <input
                 type={showPassword ? "text" : "password"}
                 name="password"
