@@ -36,7 +36,7 @@ const Login = () => {
   const getAccessToken = async (email) => {
     try {
 
-      const response = await axios.post("http://localhost:5000/jwt", { email });
+      const response = await axios.post("https://micro-task-server-side.vercel.app/jwt", { email });
       if (response.data.token) {
         localStorage.setItem("access-token", response.data.token);
       }
@@ -77,7 +77,7 @@ const Login = () => {
       };
 
      
-      axios.post("http://localhost:5000/users", userInfo).then(async () => {
+      axios.post("https://micro-task-server-side.vercel.app/users", userInfo).then(async () => {
         await getAccessToken(loggedInUser.email);
         Swal.fire({
           title: "Google Login Successful",

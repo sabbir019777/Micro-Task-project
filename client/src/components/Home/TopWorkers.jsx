@@ -8,7 +8,7 @@ const TopWorkers = () => {
     const { data: topWorkers = [], isLoading, isError } = useQuery({
         queryKey: ['bestWorkers'],
         queryFn: async () => {
-            const res = await axios.get('http://localhost:5000/best-workers');
+            const res = await axios.get('https://micro-task-server-side.vercel.app/best-workers');
             return res.data;
         }
     });

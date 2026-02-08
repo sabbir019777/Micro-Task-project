@@ -15,7 +15,7 @@ const SignUp = () => {
 
   const getAccessToken = async (email) => {
     try {
-      const response = await axios.post("http://localhost:5000/jwt", { email });
+      const response = await axios.post("https://micro-task-server-side.vercel.app/jwt", { email });
       if (response.data.token) {
         localStorage.setItem("access-token", response.data.token);
       }
@@ -37,7 +37,7 @@ const SignUp = () => {
             image: data.photoURL,
             coin: defaultCoins,
           };
-          const res = await axios.post("http://localhost:5000/users", userInfo);
+          const res = await axios.post("https://micro-task-server-side.vercel.app/users", userInfo);
           if (res.data.insertedId) {
             await getAccessToken(data.email);
             reset();
@@ -67,7 +67,7 @@ const SignUp = () => {
         image: result.user.photoURL,
         coin: 10,
       };
-      axios.post("http://localhost:5000/users", userInfo).then(() => {
+      axios.post("https://micro-task-server-side.vercel.app/users", userInfo).then(() => {
         getAccessToken(result.user.email);
         navigate("/dashboard");
       });
