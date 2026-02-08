@@ -17,13 +17,25 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+
   useEffect(() => {
     setEmail("");
     setPassword("");
   }, []);
 
+  const fillDemoCredentials = (demoEmail, demoPassword) => {
+    setEmail("");
+    setPassword("");
+    
+    setTimeout(() => {
+        setEmail(demoEmail);
+        setPassword(demoPassword);
+    }, 50); 
+  };
+
   const getAccessToken = async (email) => {
     try {
+
       const response = await axios.post("http://localhost:5000/jwt", { email });
       if (response.data.token) {
         localStorage.setItem("access-token", response.data.token);
@@ -54,12 +66,6 @@ const Login = () => {
       });
   };
 
-
-  const fillDemoCredentials = (demoEmail, demoPassword) => {
-    setEmail(demoEmail);
-    setPassword(demoPassword);
-  };
-
   const handleGoogleSignIn = () => {
     googleSignIn().then((result) => {
       const loggedInUser = result.user;
@@ -70,6 +76,7 @@ const Login = () => {
         image: loggedInUser.photoURL,
       };
 
+     
       axios.post("http://localhost:5000/users", userInfo).then(async () => {
         await getAccessToken(loggedInUser.email);
         Swal.fire({
@@ -173,7 +180,7 @@ const Login = () => {
             )}
 
             <div className="form-control mt-6">
-              <button className="btn bg-[#3b82f6] hover:bg-[#2563eb] text-white border-none text-lg">
+              <button type="submit" className="btn bg-[#3b82f6] hover:bg-[#2563eb] text-white border-none text-lg">
                 Log In
               </button>
             </div>
