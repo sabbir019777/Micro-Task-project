@@ -17,25 +17,14 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-
   useEffect(() => {
     setEmail("");
     setPassword("");
   }, []);
 
-  const fillDemoCredentials = (demoEmail, demoPassword) => {
-    setEmail("");
-    setPassword("");
-    
-    setTimeout(() => {
-        setEmail(demoEmail);
-        setPassword(demoPassword);
-    }, 50); 
-  };
-
+  // JWT Token function
   const getAccessToken = async (email) => {
     try {
-
       const response = await axios.post("https://micro-task-server-side.vercel.app/jwt", { email });
       if (response.data.token) {
         localStorage.setItem("access-token", response.data.token);
@@ -45,6 +34,31 @@ const Login = () => {
     }
   };
 
+  // --- Updated Demo Login Function (Direct Login) ---
+  const handleDemoLogin = (demoEmail, demoPassword) => {
+    // UI তে দেখানোর জন্য সেট করা হলো
+    setEmail(demoEmail);
+    setPassword(demoPassword);
+    
+    // সরাসরি লগইন প্রসেস শুরু
+    signIn(demoEmail, demoPassword)
+      .then(async (result) => {
+        await getAccessToken(result.user.email);
+        Swal.fire({
+          title: "Login Successful",
+          icon: "success",
+          timer: 1500,
+          showConfirmButton: false,
+        });
+        navigate(from, { replace: true });
+      })
+      .catch((err) => {
+          console.log(err);
+          setError("Invalid email or password.");
+      });
+  };
+
+  // Manual Login Function
   const handleLogin = (event) => {
     event.preventDefault();
     setError("");
@@ -76,7 +90,6 @@ const Login = () => {
         image: loggedInUser.photoURL,
       };
 
-     
       axios.post("https://micro-task-server-side.vercel.app/users", userInfo).then(async () => {
         await getAccessToken(loggedInUser.email);
         Swal.fire({
@@ -108,27 +121,27 @@ const Login = () => {
           
           <form onSubmit={handleLogin} className="card-body">
             
-            {/* --- Demo Buttons --- */}
+            {/* --- Demo Buttons (Updated to use handleDemoLogin) --- */}
             <div className="mb-4">
-              <p className="text-center text-gray-400 text-xs mb-2">Click to Fill Credentials</p>
+              <p className="text-center text-gray-400 text-xs mb-2">Click to Login as Demo User</p>
               <div className="flex gap-2 justify-between">
                 <button 
                   type="button"
-                  onClick={() => fillDemoCredentials('sa20@gmail.com', 'sabbir@123')}
+                  onClick={() => handleDemoLogin('sa20@gmail.com', 'sabbir@123')}
                   className="btn btn-xs bg-purple-600 hover:bg-purple-700 text-white border-none flex-1"
                 >
                   Admin
                 </button>
                 <button 
                   type="button"
-                  onClick={() => fillDemoCredentials('tamim@123gmail.com', 'Tamim@123')}
+                  onClick={() => handleDemoLogin('tamim@123gmail.com', 'Tamim@123')}
                   className="btn btn-xs bg-orange-600 hover:bg-orange-700 text-white border-none flex-1"
                 >
                   Buyer
                 </button>
                 <button 
                   type="button"
-                  onClick={() => fillDemoCredentials('somrat@gmail.com', 'somrat@123')}
+                  onClick={() => handleDemoLogin('somrat@gmail.com', 'somrat@123')}
                   className="btn btn-xs bg-green-600 hover:bg-green-700 text-white border-none flex-1"
                 >
                   Worker
