@@ -1,13 +1,13 @@
 import { createContext, useEffect, useState } from "react";
-import { 
-  GoogleAuthProvider, 
-  createUserWithEmailAndPassword, 
-  getAuth, 
-  onAuthStateChanged, 
-  signInWithEmailAndPassword, 
-  signInWithPopup, 
-  signOut, 
-  updateProfile 
+import {
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  getAuth,
+  onAuthStateChanged,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+  updateProfile,
 } from "firebase/auth";
 import { app } from "../firebase/firebase.config";
 import axios from "axios";
@@ -42,29 +42,39 @@ const AuthProvider = ({ children }) => {
 
   const updateUserProfile = (name, photo) => {
     return updateProfile(auth.currentUser, {
-      displayName: name, photoURL: photo
+      displayName: name,
+      photoURL: photo,
     });
   };
 
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, currentUser => {
+    const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      
       if (currentUser) {
-  
-        axios.post('https://micro-task-server-side.vercel.app/jwt', { email: currentUser.email })
-          .then(data => {
-            localStorage.setItem('access-token', data.data.token);
+    
+        axios.post("https://micro-task-server-side.vercel.app/jwt", { email: currentUser.email })
+          .then((data) => {
+            localStorage.setItem("access-token", data.data.token);
             setLoading(false);
+          })
+          .catch((error) => {
+            console.error("JWT Error:", error);
+          
+            localStorage.removeItem("access-token"); 
+            setLoading(false); 
           });
       } else {
-        localStorage.removeItem('access-token');
+ 
+        localStorage.removeItem("access-token");
         setLoading(false);
       }
     });
+
     return () => {
       return unsubscribe();
-    }
+    };
   }, []);
 
   const authInfo = {
@@ -75,7 +85,7 @@ const AuthProvider = ({ children }) => {
     signIn,
     googleSignIn,
     logOut,
-    updateUserProfile
+    updateUserProfile,
   };
 
   return (

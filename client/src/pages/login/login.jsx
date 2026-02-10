@@ -1,4 +1,4 @@
-import { useContext, useState, useEffect } from "react"; 
+import { useContext, useState, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
 import Swal from "sweetalert2";
@@ -10,7 +10,7 @@ const Login = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/dashboard";
-  
+
   const [error, setError] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
@@ -22,7 +22,6 @@ const Login = () => {
     setPassword("");
   }, []);
 
-  // JWT Token function
   const getAccessToken = async (email) => {
     try {
       const response = await axios.post("https://micro-task-server-side.vercel.app/jwt", { email });
@@ -34,31 +33,12 @@ const Login = () => {
     }
   };
 
-  // --- Updated Demo Login Function (Direct Login) ---
-  const handleDemoLogin = (demoEmail, demoPassword) => {
-    // UI তে দেখানোর জন্য সেট করা হলো
+  
+  const handleFillDemo = (demoEmail, demoPassword) => {
     setEmail(demoEmail);
     setPassword(demoPassword);
-    
-    // সরাসরি লগইন প্রসেস শুরু
-    signIn(demoEmail, demoPassword)
-      .then(async (result) => {
-        await getAccessToken(result.user.email);
-        Swal.fire({
-          title: "Login Successful",
-          icon: "success",
-          timer: 1500,
-          showConfirmButton: false,
-        });
-        navigate(from, { replace: true });
-      })
-      .catch((err) => {
-          console.log(err);
-          setError("Invalid email or password.");
-      });
   };
 
-  // Manual Login Function
   const handleLogin = (event) => {
     event.preventDefault();
     setError("");
@@ -66,17 +46,19 @@ const Login = () => {
     signIn(email, password)
       .then(async (result) => {
         await getAccessToken(result.user.email);
+
         Swal.fire({
           title: "Login Successful",
           icon: "success",
           timer: 1500,
           showConfirmButton: false,
+        }).then(() => {
+          navigate(from, { replace: true });
         });
-        navigate(from, { replace: true });
       })
       .catch((err) => {
-          console.log(err);
-          setError("Invalid email or password.");
+        console.log(err);
+        setError("Invalid email or password.");
       });
   };
 
@@ -97,8 +79,9 @@ const Login = () => {
           icon: "success",
           timer: 1500,
           showConfirmButton: false,
+        }).then(() => {
+          navigate("/dashboard", { replace: true });
         });
-        navigate("/dashboard", { replace: true });
       });
     });
   };
@@ -106,7 +89,7 @@ const Login = () => {
   return (
     <div className="hero min-h-screen bg-[#1d232a]">
       <div className="hero-content flex-col lg:flex-row justify-between w-full max-w-6xl px-4">
-        
+
         <div className="text-center lg:text-left lg:w-1/2 mb-8 lg:mb-0">
           <h1 className="text-5xl lg:text-6xl font-bold text-[#3b82f6]">
             MicroTasker
@@ -118,30 +101,30 @@ const Login = () => {
         </div>
 
         <div className="card shrink-0 w-full max-w-sm shadow-2xl bg-base-100 border border-gray-700">
-          
+
           <form onSubmit={handleLogin} className="card-body">
-            
-            {/* --- Demo Buttons (Updated to use handleDemoLogin) --- */}
+
+            {/* --- Demo Buttons --- */}
             <div className="mb-4">
-              <p className="text-center text-gray-400 text-xs mb-2">Click to Login as Demo User</p>
+              <p className="text-center text-gray-400 text-xs mb-2">Click to Auto-fill Demo Credentials</p>
               <div className="flex gap-2 justify-between">
-                <button 
+                <button
                   type="button"
-                  onClick={() => handleDemoLogin('sa20@gmail.com', 'sabbir@123')}
+                  onClick={() => handleFillDemo('sa20@gmail.com', 'sabbir@123')}
                   className="btn btn-xs bg-purple-600 hover:bg-purple-700 text-white border-none flex-1"
                 >
                   Admin
                 </button>
-                <button 
+                <button
                   type="button"
-                  onClick={() => handleDemoLogin('tamim@123gmail.com', 'Tamim@123')}
+                  onClick={() => handleFillDemo('tamim@123gmail.com', 'Tamim@123')}
                   className="btn btn-xs bg-orange-600 hover:bg-orange-700 text-white border-none flex-1"
                 >
                   Buyer
                 </button>
-                <button 
+                <button
                   type="button"
-                  onClick={() => handleDemoLogin('somrat@gmail.com', 'somrat@123')}
+                  onClick={() => handleFillDemo('somrat@gmail.com', 'somrat@123')}
                   className="btn btn-xs bg-green-600 hover:bg-green-700 text-white border-none flex-1"
                 >
                   Worker
@@ -157,7 +140,7 @@ const Login = () => {
                 type="email"
                 name="email"
                 placeholder="email"
-                className="input input-bordered focus:border-[#3b82f6] bg-[#1d232a] text-white" 
+                className="input input-bordered focus:border-[#3b82f6] bg-[#1d232a] text-white"
                 required
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -180,8 +163,8 @@ const Login = () => {
               <span
                 className="absolute right-3 top-[52px] cursor-pointer text-lg transition-colors duration-200"
                 onClick={() => setShowPassword(!showPassword)}
-                style={{ 
-                    color: password ? '#3b82f6' : '#6b7280'
+                style={{
+                  color: password ? '#3b82f6' : '#6b7280'
                 }}
               >
                 {showPassword ? <FaEyeSlash /> : <FaEye />}

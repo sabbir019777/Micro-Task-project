@@ -11,12 +11,19 @@ const Navbar = () => {
     const [userData] = useUserRole();
     const axiosSecure = useAxiosSecure();
 
-
+ 
     const { data: notifications = [] } = useQuery({
         queryKey: ['notifications', user?.email],
-        enabled: !!user?.email,
+ 
+        enabled: !!user?.email && !!localStorage.getItem('access-token'),
         queryFn: async () => {
-            const res = await axiosSecure.get(`/notifications/${user?.email}`);
+            const token = localStorage.getItem('access-token');
+            
+            const res = await axiosSecure.get(`/notifications/${user?.email}`, {
+                headers: {
+                    authorization: `Bearer ${token}`
+                }
+            });
             return res.data;
         }
     });
@@ -41,12 +48,12 @@ const Navbar = () => {
                             </label>
                             <ul tabIndex={0} className="menu menu-sm dropdown-content mt-4 z-[1] p-3 shadow-2xl bg-[#1d232a] border border-white/10 rounded-2xl w-64 text-gray-200 backdrop-blur-3xl">
                                 <li><NavLink to="/" className="py-3">Home</NavLink></li>
-                   
+                    
                                 <li><NavLink to="/about" className="py-3">About Us</NavLink></li>
                                 <li><NavLink to="/dashboard" className="py-3">Dashboard</NavLink></li>
                                 <li>
                                     <a href="https://github.com/sabbir019777" target="_blank" rel="noreferrer" className="py-3 text-cyan-400 font-bold">
-                                        Join as Developer
+                                            Join as Developer
                                     </a>
                                 </li>
                             </ul>
