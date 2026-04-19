@@ -20,7 +20,7 @@ const Testimonials = () => {
     { id: 1, images: ["https://i.pinimg.com/474x/b9/81/75/b98175e0e16a8ba5201019ac4c4dc4e1.jpg", "https://images.unsplash.com/photo-1615109398623-88346a601842?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8bWFufGVufDB8fDB8fHww"], y: "mt-86" },
     { id: 1, images: ["https://i.pravatar.cc/150?u=1", "https://i.pravatar.cc/150?u=2"], y: "mt-36" },
     { id: 2, images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQfYUGw5VPpLVJTW0Js9zJYfS_rBtp5QvQF4w&s", "https://images.pexels.com/photos/10260775/pexels-photo-10260775.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"], y: "mt-4" },
-    { id: 3, images: ["https://i.ibb.co/MxjfYN5v/linkdin-profile-jpg.png"], y: "-mt-54" }, 
+    { id: 3, images: ["https://i.ibb.co/RTnjq8fJ/t-2.png"], y: "-mt-54" }, 
     { id: 4, images: ["https://i.pravatar.cc/150?u=6", "https://i.pravatar.cc/150?u=7"], y: "mt-4" },
     { id: 5, images: ["https://img.freepik.com/free-photo/young-woman-blue-sweater-autumn-park_1303-11368.jpg?semt=ais_hybrid&w=740&q=80", "https://i.pinimg.com/736x/bf/91/a5/bf91a589e32a475fef8fd6cf831ac699.jpg"], y: "mt-36" },
     { id: 5, images: ["https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSTwC_Y9QnCZRNqsrw1F94Wfbrg4bekp8wO4A&s", "https://img.freepik.com/free-photo/portrait-attractive-young-man-straightening-his-jacket_171337-19813.jpg?semt=ais_hybrid&w=740&q=80"], y: "mt-86" },

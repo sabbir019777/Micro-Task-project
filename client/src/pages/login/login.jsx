@@ -203,7 +203,7 @@ const Login = () => {
                   to="/signup"
                   className="link link-hover text-[#3b82f6] font-bold"
                 >
-                  Create an account
+                  Creates an account
                 </Link>
               </span>
             </label>
